@@ -7,10 +7,10 @@ const Navbar = () => {
         <div className='text-center'>
             <h1 className='text-2xl uppercase font-bold text-[#37B34A]'>Sports Academy Pro</h1>
             <div className='flex gap-6 sm:gap-24 justify-center text-xs my-2'>
-                <NavLink to='/'>HOME</NavLink>
-                <NavLink to='/instructors'>INSTRUCTORS</NavLink>
-                <NavLink to='/classes'>CLASSES</NavLink>
-                <NavLink to='/dashboard'>DASHBOARD</NavLink>
+                <NavLink className="text-[#F6921E]" to='/'>HOME</NavLink>
+                <NavLink className="text-[#F6921E]" to='/instructors'>INSTRUCTORS</NavLink>
+                <NavLink className="text-[#F6921E]" to='/classes'>CLASSES</NavLink>
+                <NavLink className="text-[#F6921E]" to='/dashboard'>DASHBOARD</NavLink>
             </div>
             <div>
                 <div><NavLink to='/login'><button className="btn btn-sm rounded-sm bg-[#37B34A] text-white hover:bg-[#1f882f] hover:text-white">Login</button></NavLink></div>
