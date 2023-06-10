@@ -1,11 +1,12 @@
 import React from 'react';
+import logo from '../../../public/Logo.png'
 
 const Footer = () => {
     return (
         <div className='w-10/12 mx-auto mt-6 mb-2'>
             <footer className="footer p-10 text-base-content bg-[#1F882F] rounded-tl-3xl rounded-br-3xl">
                 <div>
-                    <img src="" alt="" className='w-40 h-50' />
+                    <img src={logo} alt="" className='w-40 h-50' />
                     <p className='text-2xl text-white font-semibold'>Sports Academy Pro </p>
                     <p className='font-semibold text-white'>Providing reliable tech since 1992</p>
                     
