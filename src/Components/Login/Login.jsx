@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import logo from '../../../public/Logo.png'
 import { FcGoogle } from 'react-icons/fc';
 import loginBanner from '../../assets/Banner/Banner2.jpg'
 import { Form, Link } from 'react-router-dom';
 import { BiHide, BiShow } from 'react-icons/bi';
 import { useForm } from 'react-hook-form';
+import { authContext } from '../../Shared/AuthProvider/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const Login = () => {
 
@@ -13,9 +16,34 @@ const Login = () => {
 
 
     const {register,handleSubmit} = useForm()
+    const {singInByGoogle,signInByEmailAndPass} = useContext(authContext)
+    
 
-    const formData = (data) =>{
-        console.log(data);
+    const formData = (data)=>{
+        const {email,password} = data;
+        console.log(email, password);
+        signInByEmailAndPass(email, password)
+        .then(()=>{
+            toast.success("Sing in successfull");
+        })
+        .catch((error)=>{
+            toast.error(error.message)
+        })
+    }
+    
+    
+
+    const handleSignUpWithGoogle = (event) =>{
+        event.preventDefault();
+       
+        singInByGoogle()
+        .then(()=>{
+            toast.success("Login successfull");
+            
+        })
+        .catch((error)=>{
+            toast.error(error.message);
+        })
     }
 
 
@@ -50,7 +78,7 @@ const Login = () => {
                                 <div className="form-control mt-6">
                                     <button className="btn bg-[#37B34A] text-white hover:text-white hover:bg-[#14693f] rounded-sm btn-sm" type='submit'>Login</button>
                                 </div>
-                                <button type='button' className="btn btn-sm  border-[#37B34A] rounded-sm text-[#37B34A]"><FcGoogle className='text-lg'></FcGoogle><span className='hidden sm:inline'>Sign in with google</span></button>
+                                <button type='button' onClick={handleSignUpWithGoogle}  className="btn btn-sm  border-[#37B34A] rounded-sm text-[#37B34A]"><FcGoogle className='text-lg'></FcGoogle><span className='hidden sm:inline'>Sign in with google</span></button>
                                 <div className='text-xs'>you don't have any account <Link className='text-[#37B34A]' to='/signup'>Sign Up</Link></div>
                             </div>
                             <img src={loginBanner} alt="" className='hidden sm:block w-6/12' />
@@ -58,6 +86,18 @@ const Login = () => {
                     
                 </div>
             </div>
+            <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable={false}
+                pauseOnHover
+                theme="light"
+            />
         </div>
     );
 };
