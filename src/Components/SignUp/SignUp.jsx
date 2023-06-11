@@ -12,7 +12,7 @@ const SignUp = () => {
     const [show, setShow] = useState(false)
     const [showconfirm, setShowconfirm] = useState(false)
 
-    const { createUserByEmailPassword } = useContext(authContext)
+    const { createUserByEmailPassword,updateUser } = useContext(authContext)
 
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm()
@@ -20,10 +20,21 @@ const SignUp = () => {
     const formData = (data) => {
         const email = data.email;
         const password = data.password;
+        const displayName = data.displayName;
+        const photoURL = data.photoURL;
+
+        const value = {displayName,photoURL}
 
         createUserByEmailPassword(email, password)
             .then(() => {
                 toast.success("User created successfully");
+                updateUser(value)
+                .then(()=>{
+                    
+                })
+                .catch((error)=>{
+                    toast.error(error.message);
+                })
             }).catch((error) => {
                 console.log(error.message);
                 toast.error(`${error.message}`, {
@@ -60,7 +71,7 @@ const SignUp = () => {
                                     <label className="label">
                                         <span className="label-text">Name:</span>
                                     </label>
-                                    <input {...register("name", { required: 'This is required!' })} type="text" placeholder="Name" className="input input-bordered rounded-sm" />
+                                    <input {...register("displayName", { required: 'This is required!' })} type="text" placeholder="Name" className="input input-bordered rounded-sm" />
                                     <p className='text-red-700'>{errors?.name?.message}</p>
                                 </div>
                                 <div className="form-control">
@@ -74,7 +85,7 @@ const SignUp = () => {
                                     <label className="label">
                                         <span className="label-text">Photo Url:</span>
                                     </label>
-                                    <input {...register("photoUrl", { required: 'This is required!' })} type="text" placeholder="Photo Url" className="input input-bordered rounded-sm" />
+                                    <input {...register("photoURL", { required: 'This is required!' })} type="text" placeholder="Photo Url" className="input input-bordered rounded-sm" />
                                     <p className='text-red-700'>{errors?.photoUrl?.message}</p>
                                 </div>
                                 <div className="form-control">

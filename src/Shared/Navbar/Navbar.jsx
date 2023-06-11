@@ -33,7 +33,7 @@ const Navbar = () => {
             <div>
                 {user?<div className='flex justify-center items-center gap-4'><div className="avatar">
                     <div className="w-8 rounded-full">
-                        <img src={user?.photoURL} />
+                        <img src={user?.photoURL} title={user?.displayName} />
                     </div>
                 </div><NavLink><button onClick={handleLogout} className="btn btn-sm rounded-sm bg-[#37B34A] text-white hover:bg-[#1f882f] hover:text-white">Logout</button></NavLink></div>
 
