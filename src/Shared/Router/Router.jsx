@@ -7,6 +7,7 @@ import SignUp from "../../Components/SignUp/SignUp";
 import Main from "../../Components/Main/Main";
 import Classes from "../../Components/Classes/Classes";
 import Instructors from "../../Components/Instructors/Instructors";
+import Errorpage from "../../Components/ErrorPage/Errorpage";
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
         }
       ]
     },
+    {
+      path:'*',
+      element:<Errorpage></Errorpage>
+
+    }
   ]);
 
   export default router;
