@@ -9,6 +9,9 @@ const Navbar = () => {
     const {user,logOut} = useContext(authContext)
 
     const handleLogout = ()=>{
+
+        console.log("logout button clicked");
+
         logOut()
         .then(()=>{
             toast.success("Logout successful")
@@ -32,7 +35,7 @@ const Navbar = () => {
                     <div className="w-8 rounded-full">
                         <img src={user?.photoURL} />
                     </div>
-                </div><NavLink><button className="btn btn-sm rounded-sm bg-[#37B34A] text-white hover:bg-[#1f882f] hover:text-white">Logout</button></NavLink></div>
+                </div><NavLink><button onClick={handleLogout} className="btn btn-sm rounded-sm bg-[#37B34A] text-white hover:bg-[#1f882f] hover:text-white">Logout</button></NavLink></div>
 
                 :
 
@@ -40,7 +43,7 @@ const Navbar = () => {
                     <div className="w-8 rounded-full">
                         <img src={demoProfile} />
                     </div>
-                </div><NavLink to='/login'><button onClick={handleLogout} className="btn btn-sm rounded-sm bg-[#37B34A] text-white hover:bg-[#1f882f] hover:text-white">Logout</button></NavLink></div>}
+                </div><NavLink to='/login'><button  className="btn btn-sm rounded-sm bg-[#37B34A] text-white hover:bg-[#1f882f] hover:text-white">Sign in</button></NavLink></div>}
             </div>
             <ToastContainer
                 position="top-right"
