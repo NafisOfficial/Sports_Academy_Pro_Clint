@@ -1,8 +1,10 @@
 import React from 'react';
 
-const InstructorsCard = ({instructorData}) => {
+const ClassesCard = ({classesData}) => {
 
-    const {instructor_image,instructor_name,instructor_email,instructor_category,num_classes_taken,total_students} = instructorData
+
+    const {class_name,class_image,instructor_name,instructor_image,available_seats,price,enrolled,syllabus} = classesData
+
 
     return (
         <div>
@@ -23,4 +25,4 @@ const InstructorsCard = ({instructorData}) => {
     );
 };
 
-export default InstructorsCard;
+export default ClassesCard;

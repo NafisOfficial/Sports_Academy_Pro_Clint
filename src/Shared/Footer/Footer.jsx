@@ -4,7 +4,7 @@ import logo from '../../../public/Logo.png'
 const Footer = () => {
     return (
         <div className='w-10/12 mx-auto my-6'>
-            <footer className="footer p-10 text-base-content bg-[#1F882F] rounded-tl-3xl rounded-br-3xl">
+            <footer className="footer p-10 text-base-content bg-[#1F882F] sm:rounded-tl-3xl sm:rounded-br-3xl">
                 <div>
                     <img src={logo} alt="" className='w-40 h-50' />
                     <p className='text-2xl text-white font-semibold'>Sports Academy Pro </p>
