@@ -27,10 +27,18 @@ const SignUp = () => {
 
         createUserByEmailPassword(email, password)
             .then(() => {
-                toast.success("User created successfully");
+                
                 updateUser(value)
                 .then(()=>{
-                    
+                    const userData = {email,displayName,photoURL,action:'student'}
+                    fetch('http://localhost:5000/users',{
+                        method:'POST',
+                        headers: {'content-type':'application/json'},
+                        body:JSON.stringify(userData)
+                    })
+                    .then(res=>res.json())
+                    .then(data=>console.log(data))
+                    toast.success("User created successfully");
                 })
                 .catch((error)=>{
                     toast.error(error.message);

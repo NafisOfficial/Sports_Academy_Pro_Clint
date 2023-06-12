@@ -24,15 +24,15 @@ const Navbar = () => {
     return (
         <div className='text-center'>
             <h1 className='text-2xl uppercase font-bold text-[#37B34A]'>Sports Academy Pro</h1>
-            <div className='flex gap-6 sm:gap-24 justify-center text-xs my-2'>
+            <div className='flex gap-6 sm:gap-24 justify-center items-center text-xs my-2'>
                 <NavLink className="text-[#F6921E]" to='/'>HOME</NavLink>
                 <NavLink className="text-[#F6921E]" to='/instructors'>INSTRUCTORS</NavLink>
                 <NavLink className="text-[#F6921E]" to='/classes'>CLASSES</NavLink>
                 {user ? <div className="dropdown z-30">
                     <label tabIndex={0} className="btn btn-sm bg-[#37B34A] text-white hover:bg-[#1f882f] hover:text-white">Dashbord</label>
                     <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><Link to='/enrolled' className='text-[#1f882f]'>Enrolled classes</Link></li>
-                        <li><Link to='/studentClasses' className='text-[#1f882f]'>My Classes</Link></li>
+                        <li><Link to='/enrolled' className='text-[#1f882f]'>My enrolled classes</Link></li>
+                        <li><Link to='/studentClasses' className='text-[#1f882f]'>My Selected Classes</Link></li>
                         <li><Link to='/instructorsClasses' className='text-[#1f882f]'>IClasses</Link></li>
                         <li><Link to='/addClasses' className='text-[#1f882f]'>Add a Class</Link></li>
                         <li><Link to='/manageUsers' className='text-[#1f882f]'>Manage Users</Link></li>

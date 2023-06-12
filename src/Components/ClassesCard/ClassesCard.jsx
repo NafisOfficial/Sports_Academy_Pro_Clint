@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import { authContext } from '../../Shared/AuthProvider/AuthProvider';
 
 const ClassesCard = ({ classesData }) => {
 
+    const {user} = useContext(authContext);
 
-    const { class_name, class_image,instructor_name, instructor_image, available_seats, price, enrolled, syllabus } = classesData
+    const { _id,class_name, class_image,instructor_name, instructor_image, available_seats, price, enrolled, syllabus } = classesData
 
+    const addClasses = ()=>{
+        const person = user.email;
+        const booked = {...classesData,booked_by:person,status:'unpaid'}
+
+        fetch('http://localhost:5000/users',{
+                        method:'POST',
+                        headers: {'content-type':'application/json'},
+                        body:JSON.stringify(booked)
+                    })
+                    .then(res=>res.json())
+                    .then()
+                    toast.success("You booked a class");
+    }
 
     return (
         <div>
@@ -28,10 +44,22 @@ const ClassesCard = ({ classesData }) => {
                                 <img src={instructor_image} alt="" />
                             </div>
                         </div>
-                        <button disabled={available_seats?false:true} className="btn bg-[#37B34A] text-white hover:text-white hover:bg-[#14693f] rounded-1 btn-sm">Add</button>
+                        <button onClick={addClasses} disabled={available_seats?false:true} className="btn bg-[#37B34A] text-white hover:text-white hover:bg-[#14693f] rounded-1 btn-sm">Add</button>
                     </div>
                 </div>
             </div>
+            <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable={false}
+                pauseOnHover
+                theme="light"
+            />
         </div>
     );
 };
