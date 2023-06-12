@@ -15,7 +15,7 @@ const InstructorsCard = ({instructorData}) => {
                     <p>Total students:{total_students}</p>
                     <div className="card-actions flex justify-between">
                         <div>Tatal classes: {num_classes_taken}</div>
-                        <button className="btn bg-[#37B34A] text-white hover:text-white hover:bg-[#14693f] rounded-sm btn-xs">Classes</button>
+                        <button className="btn bg-[#37B34A] text-white hover:text-white hover:bg-[#14693f] rounded-1 btn-xs">Classes</button>
                     </div>
                 </div>
             </div>

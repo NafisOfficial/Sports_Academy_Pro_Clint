@@ -1,23 +1,23 @@
 import React, { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import demoProfile from '../../../public/demoProfile.jpg'
 import { authContext } from '../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Navbar = () => {
 
-    const {user,logOut} = useContext(authContext)
+    const { user, logOut } = useContext(authContext)
 
-    const handleLogout = ()=>{
+    const handleLogout = () => {
 
         console.log("logout button clicked");
 
         logOut()
-        .then(()=>{
-            toast.success("Logout successful")
-        }).catch((error)=>{
-            toast.error(error.message)
-        })
+            .then(() => {
+                toast.success("Logout successful")
+            }).catch((error) => {
+                toast.error(error.message)
+            })
     }
 
 
@@ -28,22 +28,24 @@ const Navbar = () => {
                 <NavLink className="text-[#F6921E]" to='/'>HOME</NavLink>
                 <NavLink className="text-[#F6921E]" to='/instructors'>INSTRUCTORS</NavLink>
                 <NavLink className="text-[#F6921E]" to='/classes'>CLASSES</NavLink>
-                <NavLink className="text-[#F6921E]" to='/dashboard'>DASHBOARD</NavLink>
+                {user ? <div className="dropdown z-30">
+                    <label tabIndex={0} className="btn btn-sm bg-[#37B34A] text-white hover:bg-[#1f882f] hover:text-white">Dashbord</label>
+                    <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><Link className='text-[#1f882f]'>Item 1</Link></li>
+                        <li><Link className='text-[#1f882f]'>Item 2</Link></li>
+                    </ul>
+                </div> : <></>}
             </div>
             <div>
-                {user?<div className='flex justify-center items-center gap-4'><div className="avatar">
+                {user ? <div className='flex justify-center items-center gap-4'><div className="avatar">
                     <div className="w-8 rounded-full">
                         <img src={user?.photoURL} title={user?.displayName} />
                     </div>
-                </div><NavLink><button onClick={handleLogout} className="btn btn-sm rounded-sm bg-[#37B34A] text-white hover:bg-[#1f882f] hover:text-white">Logout</button></NavLink></div>
+                </div><NavLink><button onClick={handleLogout} className="btn btn-sm rounded-1 bg-[#37B34A] text-white hover:bg-[#1f882f] hover:text-white">Logout</button></NavLink></div>
 
-                :
+                    :
 
-                <div className='flex justify-center items-center gap-4'><div className="avatar">
-                    <div className="w-8 rounded-full">
-                        <img src={demoProfile} />
-                    </div>
-                </div><NavLink to='/login'><button  className="btn btn-sm rounded-sm bg-[#37B34A] text-white hover:bg-[#1f882f] hover:text-white">Sign in</button></NavLink></div>}
+                    <NavLink to='/login'><button className="btn btn-sm rounded-1 bg-[#37B34A] text-white hover:bg-[#1f882f] hover:text-white">Log in</button></NavLink>}
             </div>
             <ToastContainer
                 position="top-right"
