@@ -42,7 +42,7 @@ const router = createBrowserRouter([
           element:<Instructors></Instructors>
         },
         {
-          path:'studentclasses',
+          path:'studentClasses',
           element:<StudentClasses></StudentClasses>
         },
         {
