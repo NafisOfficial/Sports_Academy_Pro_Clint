@@ -21,7 +21,7 @@ const Slider = () => {
                 interval={1500}
 
                 className='aws-btn'>
-                <div className='bg' data-src='https://img.freepik.com/free-photo/sports-tools_53876-138077.jpg?size=626&ext=jpg&ga=GA1.1.890027464.1676093679&semt=sph'></div>
+                <div  data-src='https://img.freepik.com/free-photo/sports-tools_53876-138077.jpg?size=626&ext=jpg&ga=GA1.1.890027464.1676093679&semt=sph'></div>
                 <div data-src='https://img.freepik.com/free-photo/cricketer-field-action_53876-63345.jpg?size=626&ext=jpg&ga=GA1.2.890027464.1676093679&semt=sph'></div>
                 <div data-src='https://img.freepik.com/free-photo/legs-soccer-football-player_155003-5349.jpg?size=626&ext=jpg&ga=GA1.1.890027464.1676093679&semt=ais'></div>
                 <div data-src='https://img.freepik.com/free-photo/man-playing-padel_657883-308.jpg?size=626&ext=jpg&ga=GA1.1.890027464.1676093679&semt=sph'></div>
