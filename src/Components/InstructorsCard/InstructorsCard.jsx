@@ -12,7 +12,7 @@ const InstructorsCard = ({instructorData}) => {
         <div>
             <div className="card w-80 bg-base-100 shadow-xl">
                 <figure><img src={instructor_image} alt="Shoes" /></figure>
-                <div className="card-body">
+                <div className={`card-body`}>
                     <h2 className="card-title">Name: {instructor_name}</h2>
                     <p>Email: {instructor_email}</p>
                     <p>Catagory: {instructor_category}</p>
