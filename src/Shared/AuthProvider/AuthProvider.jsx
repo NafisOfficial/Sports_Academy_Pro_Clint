@@ -14,6 +14,7 @@ const Authprovider = ({children}) => {
     
     const [user,setUser] = useState(null)
     const [loading,setLoading] = useState(true);
+    const [darkmod,setDarkmode] = useState(false)
 
     const createUserByEmailPassword = (email , password) =>{
         setLoading(true)
@@ -52,12 +53,14 @@ const Authprovider = ({children}) => {
     },[])
 
 
-    const authInfo = {user,loading,setUser,updateUser,createUserByEmailPassword,signInByEmailAndPass,logOut,singInByGoogle}
+    const authInfo = {user,loading,darkmod,setDarkmode,setUser,updateUser,createUserByEmailPassword,signInByEmailAndPass,logOut,singInByGoogle}
 
 
     return (
         <authContext.Provider value={authInfo}>
-            {children}
+            <div className={darkmod?'bg-gray-900':''}>
+                {children}
+            </div>
         </authContext.Provider>
     );
 };

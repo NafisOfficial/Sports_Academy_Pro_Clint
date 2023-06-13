@@ -1,6 +1,10 @@
 import React from 'react';
+import { useContext } from 'react';
+import { authContext } from '../../Shared/AuthProvider/AuthProvider';
 
 const InstructorsCard = ({instructorData}) => {
+
+    const  {darkmod} = useContext(authContext)
 
     const {instructor_image,instructor_name,instructor_email,instructor_category,num_classes_taken,total_students} = instructorData
 

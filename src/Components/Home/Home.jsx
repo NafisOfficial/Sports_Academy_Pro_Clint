@@ -7,14 +7,18 @@ import Slider from './Slider/Slider';
 import useClasses from '../../Hooks/useClasses';
 import ClassesCard from '../ClassesCard/ClassesCard';
 import { FaLongArrowAltRight } from 'react-icons/fa';
+import { useContext } from 'react';
+import { authContext } from '../../Shared/AuthProvider/AuthProvider';
 
 const Home = () => {
 
+    const {darkmod} = useContext(authContext)
     const [instructors,loading] = useInstructors()
     const [classes] = useClasses()
 
+
     return (
-        <div>
+        <div >
             <Slider></Slider>
             <Divider title="Popular classes"></Divider>
             <div className='text-center'>{loading && <progress className="progress w-56"></progress>}</div>

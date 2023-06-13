@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import demoProfile from '../../../public/demoProfile.jpg'
 import { authContext } from '../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
+import { MdDarkMode } from 'react-icons/md';
+import { BsSunFill } from 'react-icons/bs';
 
 const Navbar = () => {
 
-    const { user, logOut } = useContext(authContext)
+    const { darkmod, setDarkmode, user, logOut } = useContext(authContext)
 
     const handleLogout = () => {
 
@@ -19,6 +20,7 @@ const Navbar = () => {
                 toast.error(error.message)
             })
     }
+
 
 
     return (
@@ -39,6 +41,21 @@ const Navbar = () => {
                         <li><Link to='/manageClasses' className='text-[#1f882f]'>Manage classes</Link></li>
                     </ul>
                 </div> : <></>}
+                <label className="swap swap-rotate">
+
+                    {/* this hidden checkbox controls the state */}
+                    <input onClick={() => setDarkmode(!darkmod)} type="checkbox" />
+
+                    <>
+                        { darkmod? 
+                            
+                            <BsSunFill className='text-3xl text-white'></BsSunFill>
+                            :
+                            <MdDarkMode className='text-3xl'></MdDarkMode>
+                        }
+                    </>
+
+                </label>
             </div>
             <div>
                 {user ? <div className='flex justify-center items-center gap-4'><div className="avatar">
