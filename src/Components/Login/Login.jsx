@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import logo from '../../../public/Logo.png'
 import { FcGoogle } from 'react-icons/fc';
 import loginBanner from '../../assets/Banner/Banner2.jpg'
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, Navigate } from 'react-router-dom';
 import { BiHide, BiShow } from 'react-icons/bi';
 import { useForm } from 'react-hook-form';
 import { authContext } from '../../Shared/AuthProvider/AuthProvider';
@@ -21,12 +21,12 @@ const Login = () => {
 
     const formData = (data)=>{
         const {email,password} = data;
-        console.log(email, password);
         signInByEmailAndPass(email, password)
         .then(()=>{
             toast.success("Sing in successfull");
         })
         .catch((error)=>{
+            <Navigate to='/'></Navigate>
             toast.error(error.message)
         })
     }
@@ -48,8 +48,8 @@ const Login = () => {
                         body:JSON.stringify(userData)
                     })
                     .then(res=>res.json())
-                    .then(data=>console.log(data))
-            
+                    .then(<Navigate to='/'></Navigate>)
+                    
             toast.success("Login successfull");
             
         })

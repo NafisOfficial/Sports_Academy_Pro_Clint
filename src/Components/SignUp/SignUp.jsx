@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from 'react';
 import logo from '../../../public/Logo.png'
 import signupBanner from '../../assets/Banner/Banner.jpg'
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, Navigate } from 'react-router-dom';
 import { BiHide, BiShow } from 'react-icons/bi';
 import { useForm } from 'react-hook-form';
 import { authContext } from '../../Shared/AuthProvider/AuthProvider';
@@ -37,7 +37,7 @@ const SignUp = () => {
                         body:JSON.stringify(userData)
                     })
                     .then(res=>res.json())
-                    .then(data=>console.log(data))
+                    .then(<Navigate to='/login'></Navigate>)
                     toast.success("User created successfully");
                 })
                 .catch((error)=>{
