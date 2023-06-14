@@ -37,7 +37,19 @@ const Login = () => {
         event.preventDefault();
        
         singInByGoogle()
-        .then(()=>{
+        .then((result)=>{
+
+            const {email,displayName,photoURL} = result.user;
+            const userData = {email,displayName,photoURL,action:'student'}
+
+            fetch('http://localhost:5000/users',{
+                        method:'POST',
+                        headers: {'content-type':'application/json'},
+                        body:JSON.stringify(userData)
+                    })
+                    .then(res=>res.json())
+                    .then(data=>console.log(data))
+            
             toast.success("Login successfull");
             
         })

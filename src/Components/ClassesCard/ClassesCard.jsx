@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { authContext } from '../../Shared/AuthProvider/AuthProvider';
+import Private from '../PrivateRoute/Private';
 
 const ClassesCard = ({ classesData }) => {
 
@@ -44,7 +45,7 @@ const ClassesCard = ({ classesData }) => {
                                 <img src={instructor_image} alt="" />
                             </div>
                         </div>
-                        <button onClick={addClasses} disabled={available_seats?false:true} className="btn bg-[#37B34A] text-white hover:text-white hover:bg-[#14693f] rounded-1 btn-sm">Add</button>
+                        <button onClick={addClasses} disabled={available_seats?false:true} className="btn bg-[#37B34A] text-white hover:text-white hover:bg-[#14693f] rounded-1 btn-sm">add</button>
                     </div>
                 </div>
             </div>

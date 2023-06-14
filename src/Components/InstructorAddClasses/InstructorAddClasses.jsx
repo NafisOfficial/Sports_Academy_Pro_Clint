@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { authContext } from "../../Shared/AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 
 
@@ -24,14 +25,24 @@ const InstructorAddClasses = () => {
 
         const classData = {class_name,class_image,instructor_name,instructor_email,instructor_image,available_seats,price,enrolled,syllabus}
 
-        console.log(classData)
+
+
+        fetch('http://localhost:5000/addedClass',{
+                        method:'POST',
+                        headers: {'content-type':'application/json'},
+                        body:JSON.stringify(classData)
+                    })
+                    .then(res=>res.json())
+                    .then(data=>console.log(data))
+                    toast.success("Class Added successfully");
+                    event.target.reset();
     }
 
 
     return (
-        <div className={`w-10/12 mx-auto my-12 ${darkmod ? 'text-white' : ''}`}>
+        <div className={`w-10/12 mx-auto  my-12 ${darkmod ? 'text-white' : ''}`}>
             <h1 className='text-4xl text-center my-6 text-[#37B34A]'>Provide your class details</h1>
-            <form onSubmit={handleSubmit} action="" className='border border-1 p-6 rounded text-auto '>
+            <form onSubmit={handleSubmit} action="" className='border border-1 p-6 rounded bg-[#85e793] text-auto '>
                 <div>
                     <label htmlFor="Class_name">Class Name:</label><br />
                     <input  className='input input-bordered w-11/12 input-md' type="text" name="Class_name" placeholder='add a class name' id="Class_name" />
@@ -42,11 +53,11 @@ const InstructorAddClasses = () => {
                 </div>
                 <div>
                     <label htmlFor="name">Available Seat:</label><br />
-                    <input  className='input input-bordered w-11/12 input-md' type="text" name="seat" placeholder='available seat' id="seat" />
+                    <input  className='input input-bordered w-11/12 input-md' type="number" name="seat" placeholder='available seat' id="seat" />
                 </div>
                 <div>
                     <label htmlFor="name">Price:</label><br />
-                    <input  className='input input-bordered w-11/12 input-md' type="text" name="price" placeholder='price' id="name" />
+                    <input  className='input input-bordered w-11/12 input-md' type="number" name="price" placeholder='price' id="name" />
                 </div>
                 <div>
                     <label htmlFor="name">Add here three topic what will you teach:</label><br />

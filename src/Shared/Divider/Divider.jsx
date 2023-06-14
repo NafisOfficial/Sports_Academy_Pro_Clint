@@ -1,7 +1,9 @@
 import React from 'react';
 
+
 const Divider = (props) => {
 
+  
     const {title} = props;
 
     return (

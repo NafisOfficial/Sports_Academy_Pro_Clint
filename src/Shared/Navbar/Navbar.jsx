@@ -11,8 +11,6 @@ const Navbar = () => {
 
     const handleLogout = () => {
 
-        console.log("logout button clicked");
-
         logOut()
             .then(() => {
                 toast.success("Logout successful")
@@ -35,7 +33,7 @@ const Navbar = () => {
                     <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to='/enrolled' className='text-[#1f882f]'>My enrolled classes</Link></li>
                         <li><Link to='/studentClasses' className='text-[#1f882f]'>My Selected Classes</Link></li>
-                        <li><Link to='/instructorsClasses' className='text-[#1f882f]'>IClasses</Link></li>
+                        <li><Link to='/instructorsClasses' className='text-[#1f882f]'>Classes</Link></li>
                         <li><Link to='/addClasses' className='text-[#1f882f]'>Add a Class</Link></li>
                         <li><Link to='/manageUsers' className='text-[#1f882f]'>Manage Users</Link></li>
                         <li><Link to='/manageClasses' className='text-[#1f882f]'>Manage classes</Link></li>

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const useClasses = () => {
 
     const [loading,setLoading] = useState(true)
-    const [classes, setClasses] = useState([])
+    const [allClass, setClasses] = useState([])
 
     useEffect(() => {
         fetch('http://localhost:5000/classes')
@@ -18,7 +18,7 @@ const useClasses = () => {
 
 
 
-    return [classes,loading]
+    return [allClass,loading]
     
 }
 
