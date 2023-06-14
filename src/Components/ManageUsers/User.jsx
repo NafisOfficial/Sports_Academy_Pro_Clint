@@ -13,7 +13,7 @@ const User = ({data}) => {
 
         const {id,action} = data
 
-        fetch(`http://localhost:5000/users/admin/${id}?action=${action}`,{
+        fetch(`https://sports-server-nafisofficial.vercel.app/users/admin/${id}?action=${action}`,{
             method: 'PATCH'
         })
         .then(res=>res.json())

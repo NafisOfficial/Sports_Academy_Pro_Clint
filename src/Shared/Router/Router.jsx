@@ -61,12 +61,12 @@ const router = createBrowserRouter([
         {
           path:'manageUsers',
           element:<ManageUsers></ManageUsers>,
-          loader: ()=>fetch('http://localhost:5000/allusers')
+          loader: ()=>fetch('https://sports-server-nafisofficial.vercel.app/allusers')
         },
         {
           path:'manageClasses',
           element:<ManageClasses></ManageClasses>,
-          loader: ()=>fetch('http://localhost:5000/addedClass')
+          loader: ()=>fetch('https://sports-server-nafisofficial.vercel.app/addedClass')
         }
       ]
     },

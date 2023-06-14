@@ -14,7 +14,7 @@ const StudentClasses = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/userBooked')
+        fetch('https://sports-server-nafisofficial.vercel.app/userBooked')
             .then(res => res.json())
             .then(data => setSelectedByUser(data.filter(dt => dt.booked_by === user?.email)))
     }, [user?.email])

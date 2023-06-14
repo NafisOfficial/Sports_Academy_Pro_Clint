@@ -8,7 +8,7 @@ const Selected = ({ data }) => {
 
     const handleDelete = (_id) => {
 
-    fetch(`http://localhost:5000/userBooked/${_id}`,{
+    fetch(`https://sports-server-nafisofficial.vercel.app/userBooked/${_id}`,{
         method: 'DELETE',
 
     })

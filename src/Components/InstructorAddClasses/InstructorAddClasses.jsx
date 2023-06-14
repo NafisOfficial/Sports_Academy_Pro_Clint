@@ -28,7 +28,7 @@ const InstructorAddClasses = () => {
 
 
 
-        fetch('http://localhost:5000/addedClass',{
+        fetch('https://sports-server-nafisofficial.vercel.app/addedClass',{
                         method:'POST',
                         headers: {'content-type':'application/json'},
                         body:JSON.stringify(classData)

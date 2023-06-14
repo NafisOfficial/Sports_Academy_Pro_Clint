@@ -1,10 +1,15 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ManageClass from './ManageClass';
+import { useEffect } from 'react';
 
 const ManageClasses = () => {
 
     const data = useLoaderData();
+
+    useEffect(()=>{
+        
+    },[])
 
     return (
         <div>

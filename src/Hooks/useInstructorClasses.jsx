@@ -15,7 +15,7 @@ const useInstructorClasses = () => {
         queryKey: ['Classes', user?.email],
 
         queryFn: async ()=>{
-            const res = await fetch(`http://localhost:5000/iclasses?email=${user?.email}`)
+            const res = await fetch(`https://sports-server-nafisofficial.vercel.app/iclasses?email=${user?.email}`)
             return res.json()
         }
       })

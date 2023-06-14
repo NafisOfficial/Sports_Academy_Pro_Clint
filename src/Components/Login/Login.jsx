@@ -42,7 +42,7 @@ const Login = () => {
             const {email,displayName,photoURL} = result.user;
             const userData = {email,displayName,photoURL,action:'student'}
 
-            fetch('http://localhost:5000/users',{
+            fetch('https://sports-server-nafisofficial.vercel.app/users',{
                         method:'POST',
                         headers: {'content-type':'application/json'},
                         body:JSON.stringify(userData)

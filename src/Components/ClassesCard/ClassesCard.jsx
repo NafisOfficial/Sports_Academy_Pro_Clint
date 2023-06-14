@@ -13,7 +13,7 @@ const ClassesCard = ({ classesData }) => {
         const person = user.email;
         const booked = {...classesData,booked_by:person,status:'unpaid'}
 
-        fetch('http://localhost:5000/userBooked',{
+        fetch('https://sports-server-nafisofficial.vercel.app/userBooked',{
                         method:'POST',
                         headers: {'content-type':'application/json'},
                         body:JSON.stringify(booked)
