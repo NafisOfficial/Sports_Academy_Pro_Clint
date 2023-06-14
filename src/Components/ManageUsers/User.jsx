@@ -1,5 +1,4 @@
 
-import { useQuery } from '@tanstack/react-query'
 import { toast } from 'react-toastify';
 
 const User = ({data}) => {
@@ -7,22 +6,12 @@ const User = ({data}) => {
 
     const {_id,email,displayName,photoURL,action} = data ;
 
-    const handleAdmin = (id) =>{
-        fetch(`http://localhost:5000/users/admin/${id}`,{
-            method: 'PATCH'
-        })
-        .then(res=>res.json())
-        .then((data)=>{
-            if(data.modifiedCount>0){
-                toast.success("Admin")
-            }
-        })
-    }
+    
     
     const handleUser = (data) =>{
+        console.log(data);
 
-        const {id,action} = data;
-        
+        const {id,action} = data
 
         fetch(`http://localhost:5000/users/admin/${id}?action=${action}`,{
             method: 'PATCH'

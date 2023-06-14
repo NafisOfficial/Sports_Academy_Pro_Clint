@@ -65,7 +65,8 @@ const router = createBrowserRouter([
         },
         {
           path:'manageClasses',
-          element:<ManageClasses></ManageClasses>
+          element:<ManageClasses></ManageClasses>,
+          loader: ()=>fetch('http://localhost:5000/addedClass')
         }
       ]
     },

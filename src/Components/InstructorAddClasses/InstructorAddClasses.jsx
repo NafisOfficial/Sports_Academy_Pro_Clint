@@ -21,9 +21,10 @@ const InstructorAddClasses = () => {
         const available_seats = event.target.seat.value;
         const price = event.target.price.value;
         const enrolled = 0;
-        const syllabus = [event.target.feature1.value,event.target.feature2.value,event.target.feature3.value]
+        const syllabus = [event.target.feature1.value,event.target.feature2.value,event.target.feature3.value];
+        const status = 'pending'
 
-        const classData = {class_name,class_image,instructor_name,instructor_email,instructor_image,available_seats,price,enrolled,syllabus}
+        const classData = {class_name,class_image,instructor_name,instructor_email,instructor_image,available_seats,price,enrolled,syllabus,status}
 
 
 
