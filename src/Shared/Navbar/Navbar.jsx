@@ -4,10 +4,17 @@ import { authContext } from '../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import { MdDarkMode } from 'react-icons/md';
 import { BsSunFill } from 'react-icons/bs';
+import useHandleUser from '../../Hooks/useHandleUser';
 
 const Navbar = () => {
 
-    const { darkmod, setDarkmode, user, logOut } = useContext(authContext)
+    const { darkmod, setDarkmode, user, logOut } = useContext(authContext);
+
+    const [userCollecton] = useHandleUser();
+    
+    if(userCollecton){
+        const action = userCollecton?.action;
+    }
 
     const handleLogout = () => {
 
@@ -31,12 +38,12 @@ const Navbar = () => {
                 {user ? <div className="dropdown z-30">
                     <label tabIndex={0} className="btn btn-sm bg-[#37B34A] text-white hover:bg-[#1f882f] hover:text-white">Dashbord</label>
                     <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><Link to='/enrolled' className='text-[#1f882f]'>My enrolled classes</Link></li>
-                        <li><Link to='/studentClasses' className='text-[#1f882f]'>My Selected Classes</Link></li>
-                        <li><Link to='/instructorsClasses' className='text-[#1f882f]'>Classes</Link></li>
-                        <li><Link to='/addClasses' className='text-[#1f882f]'>Add a Class</Link></li>
-                        <li><Link to='/manageUsers' className='text-[#1f882f]'>Manage Users</Link></li>
-                        <li><Link to='/manageClasses' className='text-[#1f882f]'>Manage classes</Link></li>
+                        <li className={`${userCollecton?.action!=='student'?'hidden':''}`}><Link to='/enrolled' className='text-[#1f882f]'>My enrolled classes</Link></li>
+                        <li className={`${userCollecton?.action!=='student'?'hidden':''}`}><Link to='/studentClasses' className='text-[#1f882f]'>My Selected Classes</Link></li>
+                        <li className={`${userCollecton?.action!=='instructor'?'hidden':''}`}><Link to='/instructorsClasses' className='text-[#1f882f]'>Classes</Link></li>
+                        <li className={`${userCollecton?.action!=='instructor'?'hidden':''}`}><Link to='/addClasses' className='text-[#1f882f]'>Add a Class</Link></li>
+                        <li className={`${userCollecton?.action!=='admin'?'hidden':''}`}><Link to='/manageUsers' className='text-[#1f882f]'>Manage Users</Link></li>
+                        <li className={`${userCollecton?.action!=='admin'?'hidden':''}`}><Link to='/manageClasses' className='text-[#1f882f]'>Manage classes</Link></li>
                     </ul>
                 </div> : <></>}
                 <label className="swap swap-rotate">

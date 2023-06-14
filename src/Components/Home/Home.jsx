@@ -7,13 +7,11 @@ import Slider from './Slider/Slider';
 import useClasses from '../../Hooks/useClasses';
 import ClassesCard from '../ClassesCard/ClassesCard';
 import { FaLongArrowAltRight } from 'react-icons/fa';
-import { useContext } from 'react';
-import { authContext } from '../../Shared/AuthProvider/AuthProvider';
 import DataAnalysis from '../DataAnalysis/DataAnalysis';
+import useHandleUser from '../../Hooks/useHandleUser';
 
 const Home = () => {
 
-    const {darkmod} = useContext(authContext)
     const [instructors,loading] = useInstructors()
     const [classes] = useClasses()
 

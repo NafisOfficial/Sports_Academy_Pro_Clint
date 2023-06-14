@@ -34,8 +34,8 @@ const InstructorAddClasses = () => {
                         body:JSON.stringify(classData)
                     })
                     .then(res=>res.json())
-                    .then(data=>console.log(data))
-                    toast.success("Class Added successfully");
+                    .then(toast.success("Class Added successfully"))
+                    
                     event.target.reset();
     }
 

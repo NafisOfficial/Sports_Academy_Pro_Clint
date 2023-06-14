@@ -3,6 +3,7 @@ import { createContext } from 'react';
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateCurrentUser, updateProfile } from 'firebase/auth';
 import app from '../../Firebase/firebase.config';
 import { GoogleAuthProvider } from 'firebase/auth';
+import useHandleUser from '../../Hooks/useHandleUser';
 
 export const authContext = createContext(null)
 
